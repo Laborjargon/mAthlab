@@ -2,7 +2,7 @@
 % TODO: Proportion correct as a function of disc overlap in different conditions
 
 % Read data
-data = readtable('C:/Users/somme/Downloads/Coc1ben21.dat', 'Delimiter', '\t', 'HeaderLines', 0);
+data = readtable('C:/Users/somme/Downloads/Coc1102.dat', 'Delimiter', '\t', 'HeaderLines', 0);
 
 % Rename columns
 data.Properties.VariableNames{'Var6'} = 'discs';
@@ -34,7 +34,11 @@ proportion_correct_table.prop_correct = proportion_correct';
 
 % Plot the data using bar plot
 figure;
-bar(proportion_correct_table.condition, proportion_correct_table.prop_correct, 'FaceColor', [0.5 0.8 1], 'EdgeColor', 'k');
+%plot(proportion_correct_table.discs, proportion_correct_table.prop_correct, 'FaceColor', [0.5 1], 'EdgeColor', 'k');
+plot(proportion_correct_table.discs(1:3), proportion_correct_table.prop_correct(1:3),'o-');
+hold on
+plot(proportion_correct_table.discs(4:6), proportion_correct_table.prop_correct(4:6),'o-');
+hold off
 xlabel('Condition');
 ylabel('Proportion Correct');
 title('Proportion Correct by Condition');
